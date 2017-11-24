@@ -3,7 +3,13 @@ I want to see how easily people are lured into connecting to a random 'free' Wi-
 
 I'll be using a [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) to create an unprotected wifi hotspot with a [captive portal](https://en.wikipedia.org/wiki/Captive_portal) and try to make dns requests for popular social media websites resolve to a webserver running on the rpi.
 
-I'll try to use this script to get the hotspot running first: https://github.com/pihomeserver/Kupiki-Hotspot-Script
+I'll try to use the [Kupiki Hotspot Script](https://github.com/pihomeserver/Kupiki-Hotspot-Script) to get the hotspot running first. It's a script that automatically creates a wifi hotspot that already includes some things like a captive portal and a secure authentication process. I will attempt to rewrite this authentication process to disable the hashing of passwords entered in the captive portal.
+
+Some things that had to be done manually using the Kupiki Hotspot Script:
+- sudo apt-get install mariadb-server
+
+Issues during installation: 
+- At one point, the NIC is reset, changing the IP address, default gateway etc. The problem is, I was using the wifi NIC to both connect to the internet and host the hotspot. This is obviously not possible, so I had to connect the Pi3 to the internet using an ethernet cable.
 
 
 # Reading material and sources
