@@ -12,6 +12,12 @@ Some things that had to be done manually using the Kupiki Hotspot Script:
 Issues during installation: 
 - At one point, the NIC is reset, changing the IP address, default gateway etc. The problem is, I was using the wifi NIC to both connect to the internet and host the hotspot. This is obviously not possible, so I had to connect the Pi3 to the internet using an ethernet cable.
 
+# TODO
+
+- Make Raspberry Pi portable (powerbank with 2Amps)
+- Create some dummy login webpages & Edit DNS settings to point common domains like facebook.com, ... to my fake webpages (OR just use coovachilli & disable encryption?)
+- Have admin panel on hotspot where I can download a file with all the credentials
+
 
 # Reading material and sources
 https://raspberrypihq.com/how-to-turn-a-raspberry-pi-into-a-wifi-router/
