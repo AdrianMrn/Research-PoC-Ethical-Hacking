@@ -31,37 +31,28 @@ Then I configured my rpi to have a static IP address by going to
 
 and adding these lines to the end of the file:
 
-`interface wlan0
-
-static ip_address=192.168.4.1/24`
+    interface wlan0
+    static ip_address=192.168.4.1/24
 
 and restarting the dhcpcd service: sudo service dhcpcd restart
 
 Then I added these lines to the end of my /etc/dnsmasq.conf file:
 
-`log-facility=/var/log/dnsmasq.log
-
-interface=wlan0
-
-dhcp-range=192.168.4.2,192.168.4.200,255.255.255.0,12h
-
-no-resolv
-
-log-queries
-
-address=/#/192.168.4.1`
+    log-facility=/var/log/dnsmasq.log
+    interface=wlan0
+    dhcp-range=192.168.4.2,192.168.4.200,255.255.255.0,12h
+    no-resolv
+    log-queries
+    address=/#/192.168.4.1
 
 This sets dnsmasq up to deliver IP addresses through DHCP in the 192.168.4.2 - 192.168.4.200 range (about 200 addresses), with a lease time of 12 hours. I'm also logging all queries going through dnsmasq to the /var/log/dnsmasq.log file, this can be used to monitor who and/or what is accessing your AP. The last line will set up dnsmasq to resolve all dns queries to the local IP address, where nginx will be hosting our fake captive portal.
 
 Then I edited the hostapd config file /etc/hostapd/hostapd.conf to act as an access point:
 
-`interface=wlan0
-
-driver=nl80211
-
-ssid=FreeWiFi
-
-channel=7`
+    interface=wlan0
+    driver=nl80211
+    ssid=FreeWiFi
+    channel=7
 
 This sets the name of the AP to "FreeWiFi", this is what will show up when somebody is scanning for open Wi-Fi networks. I might even add an underscore to the start of the SSID, so it shows up at the top of the list on iOS & osx devices, but this didn't seem to work initially.
 
@@ -69,17 +60,12 @@ To make sure hostapd knows where to find this config file, the DAEMON_CONF varia
 
 Finally, stop and start all services to refresh their settings:
 
-`sudo systemctl stop hostapd
-
-sudo systemctl stop dnsmasq
-
-sudo systemctl stop nginx
-
-sudo service hostapd start
-
-sudo service dnsmasq start
-
-sudo service nginx start`
+    sudo systemctl stop hostapd
+    sudo systemctl stop dnsmasq
+    sudo systemctl stop nginx
+    sudo service hostapd start
+    sudo service dnsmasq start
+    sudo service nginx start
 
 Now, if you use your phone or laptop to search for Wi-Fi networks, there should be a network called FreeWiFi. If connected to it and you type in any website's address, it should show the nginx welcome page.
 
