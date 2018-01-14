@@ -1,4 +1,6 @@
 # Research-PoC-Ethical-Hacking
+
+# Kupiki Hotspot Script
 I want to see how easily people are lured into connecting to a random 'free' Wi-Fi hotspot and unknowingly give me their login credentials to various websites.
 
 I'll be using a [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) to create an unprotected wifi hotspot with a [captive portal](https://en.wikipedia.org/wiki/Captive_portal) and try to make dns requests for popular social media websites resolve to a webserver running on the rpi.
