@@ -19,10 +19,9 @@ Todo:
 
 # Starting Over
 I'm starting over at this point because I've figured out the Kupiki hotspot won't serve my needs. My current plan of action is this:
-
-    - Use hostapd to turn my Pi3 into a wireless access point with a juicy name (eg _freeWi-Fi)
-    - Use Dnsmasq to forge DNS entries for websites like facebook.com, paypal.com and others
-    - Use nginx to serve the fake login forms
+- Use hostapd to turn my Pi3 into a wireless access point with a juicy name (eg _freeWi-Fi)
+- Use Dnsmasq to forge DNS entries for websites like facebook.com, paypal.com and others
+- Use nginx to serve the fake login forms
 
 I installed everything I needed by using
 
