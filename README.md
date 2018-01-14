@@ -19,20 +19,24 @@ Todo:
 
 # Starting Over
 I'm starting over at this point because I've figured out the Kupiki hotspot won't serve my needs. My current plan of action is this:
+
     - Use hostapd to turn my Pi3 into a wireless access point with a juicy name (eg _freeWi-Fi)
     - Use Dnsmasq to forge DNS entries for websites like facebook.com, paypal.com and others
     - Use nginx to serve the fake login forms
 
 I installed everything I needed by using
+
     sudo apt-get install dnsmasq hostapd nginx
 
 Then I configured my rpi to have a static IP address by going to `/etc/dhcpcd.conf` and adding these lines to the end of the file:
+
     interface wlan0
     static ip_address=192.168.4.1/24
 
 and restarting the dhcpcd service: `sudo service dhcpcd restart`
 
 Then I added these lines to the end of my `/etc/dnsmasq.conf` file:
+
     log-facility=/var/log/dnsmasq.log
     interface=wlan0
     dhcp-range=192.168.4.2,192.168.4.200,255.255.255.0,12h
@@ -43,6 +47,7 @@ Then I added these lines to the end of my `/etc/dnsmasq.conf` file:
 This sets dnsmasq up to deliver IP addresses through DHCP in the 192.168.4.2 - 192.168.4.200 range (about 200 addresses), with a lease time of 12 hours. I'm also logging all queries going through dnsmasq to the `/var/log/dnsmasq.log` file, this can be used to monitor who and/or what is accessing your AP. The last line will set up dnsmasq to resolve all dns queries to the local IP address, where nginx will be hosting our fake captive portal.
 
 Then I edited the hostapd config file `/etc/hostapd/hostapd.conf` to act as an access point:
+
     interface=wlan0
     driver=nl80211
     ssid=FreeWiFi
@@ -53,6 +58,7 @@ This sets the name of the AP to "FreeWiFi", this is what will show up when someb
 To make sure hostapd knows where to find this config file, the `DAEMON_CONF` variable in `/etc/default/hostapd` needs to be set to the config file we just edited(`/etc/hostapd/hostapd.conf`).
 
 Finally, stop and start all services to refresh their settings:
+
     sudo systemctl stop hostapd
     sudo systemctl stop dnsmasq
     sudo systemctl stop nginx
