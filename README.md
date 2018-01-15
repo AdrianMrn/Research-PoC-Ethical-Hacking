@@ -58,7 +58,7 @@ This sets the name of the AP to "FreeWiFi", this is what will show up when someb
 
 To make sure hostapd knows where to find this config file, the `DAEMON_CONF` variable in `/etc/default/hostapd` needs to be set to the config file we just edited(`/etc/hostapd/hostapd.conf`).
 
-Finally, stop and start all services to refresh their settings:
+Finally, stop and start all services to refresh their settings (simply using `sudo service xxx restart` wouldn't work):
 
     sudo systemctl stop hostapd
     sudo systemctl stop dnsmasq
@@ -74,7 +74,7 @@ When I first connected to the AP, I realised the experience was slightly differe
 
 I joined a local ISP's hotspot and copied their captive portal (html, css, images, js), I will be copying the SSID of their wifi hotspot as well. I edited the login form slightly, to POST to a php script that will save the login credentials to a file in csv format and redirects the user back to the login page afterwards.
 
-At this point I realised Raspbian doesn't come with php installed.
+At this point I realised Raspbian doesn't come with php installed. Make sure you have php7.0-fpm installed by running `apt-get install php7.0-fpm`.
 
 Make sure to set the permissions to 777 for the file you're writing to, otherwise you might lose some time figuring out why nothing is happening when running the script.
 
@@ -91,6 +91,21 @@ After installing an SSL certificate for the webserver and accessing the page, I 
 
 # Portability
 My Raspberry Pi3 wouldn't start up when connected to my powerbank supplying 1 Amps of power, I looked around for a bit and figured out that a Pi3 needs a pretty beefy powerbank supplying at least 2.1 Amps of power.
+
+
+# Summary of tools used
+1. Kupiki-Hotspot
+    Major waste of time if you're up to no good.
+    Very powerful when setting up a legit hotspot with a Raspberry Pi (includes a customizable captive portal powered by coovachilli, a secure authentication process based on freeRadius and a built-in management interface with hotspot options, vouchers, ...).
+
+2. hostapd
+    Tool to turn your linux machine into a hotspot (actually the same tools that turns your Android device into a hotspot).
+
+3. nginx
+    High performance web server with a relatively easy setup process.
+
+4. dnsmasq
+    Very lightweight tool that provides DNS, DHCP and some other services.
 
 
 # Reading material and sources
