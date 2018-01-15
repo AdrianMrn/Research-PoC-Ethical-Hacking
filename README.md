@@ -94,20 +94,20 @@ My Raspberry Pi3 wouldn't start up when connected to my powerbank supplying 1 Am
 
 
 # Summary of tools used
-1. Kupiki-Hotspot
+1. **Kupiki-Hotspot**
 
     Major waste of time if you're up to no good.
     Very powerful when setting up a legit hotspot with a Raspberry Pi (includes a customizable captive portal powered by coovachilli, a secure authentication process based on freeRadius and a built-in management interface with hotspot options, vouchers, ...).
 
-2. hostapd
+2. **hostapd**
 
     Tool to turn your linux machine into a hotspot (actually the same tools that turns your Android device into a hotspot).
 
-3. nginx
+3. **nginx**
 
     High performance web server with a relatively easy setup process.
 
-4. dnsmasq
+4. **dnsmasq**
 
     Very lightweight tool that provides DNS, DHCP and some other services.
 
