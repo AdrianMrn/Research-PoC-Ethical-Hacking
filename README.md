@@ -99,3 +99,9 @@ http://www.pihomeserver.fr/en/2014/05/22/raspberry-pi-home-server-creer-hot-spot
 https://medium.com/@edoardo849/turn-a-raspberrypi-3-into-a-wifi-router-hotspot-41b03500080e
 
 https://blog.heckel.xyz/2013/07/18/how-to-dns-spoofing-with-a-simple-dns-server-using-dnsmasq/
+
+https://andrewmichaelsmith.com/2013/08/raspberry-pi-wi-fi-honeypot/
+
+https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md
+
+https://www.raspberrypi.org/documentation/remote-access/web-server/nginx.md

