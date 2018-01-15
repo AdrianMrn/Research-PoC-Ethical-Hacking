@@ -67,11 +67,30 @@ Finally, stop and start all services to refresh their settings:
     sudo service dnsmasq start
     sudo service nginx start
 
-Now, if you use your phone or laptop to search for Wi-Fi networks, there should be a network called FreeWiFi. If connected to it and you type in any website's address, it should show the nginx welcome page.
+Now, if you use your phone or laptop to search for Wi-Fi networks, there should be a network called FreeWiFi. If connected to it and you type in any website's address, it should show the nginx welcome page. On certain devices, you will even get a notification asking you to log in to gain access to the internet, how convenient and helpful of them!
 
 # Captive portal
 When I first connected to the AP, I realised the experience was slightly different from other wi-fi hotspots: I didn't get a prompt to log in to get access to the internet. I'll try to figure out how to automatically prompt the user to log in to a so-called captive portal, in the hope that most users will enter their actual credentials, so I can harvest them (ethically, of course).
 
+I joined a local ISP's hotspot and copied their captive portal (html, css, images, js), I will be copying the SSID of their wifi hotspot as well. I edited the login form slightly, to POST to a php script that will save the login credentials to a file in csv format and redirects the user back to the login page afterwards.
+
+At this point I realised Raspbian doesn't come with php installed.
+
+Make sure to set the permissions to 777 for the file you're writing to, otherwise you might lose some time figuring out why nothing is happening when running the script.
+
+Finally, I created a seperate php script getdata.php that serves the csv file for download. I could password protect this, but I don't think the average user would stumble upon the script.
+
+# Making it seem more credible
+I need to edit my nginx settings to best imitate the ISP's captive portal and make it seem as credible as possible.
+
+First, I'm creating a new website in nginx's `sites-available` and creating a subfolder structure that copies the ISP's captive portal. Next, I'm configuring my landing page to redirect the user to this page.
+
+Finally, I don't want the user to get any warnings about the page not running on SSL and their credentials being stolen, because that's not what's happening here at all, so I'll be attempting to get the page to be served over HTTPS.
+
+After installing an SSL certificate for the webserver and accessing the page, I was issued a [huge warning](https://i.ytimg.com/vi/Wn2IBrtEgRg/hqdefault.jpg) telling me my connection was not private. I won't be using a self signed SSL certificate because of this reason. I obviously don't have access to the ISP's domain, so I also can't generate an SSL certificate using a Certificate Authority like Letsencrypt that would work with my server.
+
+# Portability
+My Raspberry Pi3 wouldn't start up when connected to my powerbank supplying 1 Amps of power, I looked around for a bit and figured out that a Pi3 needs a pretty beefy powerbank supplying at least 2.1 Amps of power.
 
 
 # Reading material and sources
